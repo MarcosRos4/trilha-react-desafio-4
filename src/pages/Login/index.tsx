@@ -49,7 +49,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button disabled={isValid} title="Entrar" />
         </Column>
       </LoginContainer>
     </Container>

@@ -1,19 +1,19 @@
 import { IButtonProps } from "./types";
 
-const Button = ({ title, disabled, onClick }: IButtonProps) => {
+const Button = ({ title, isDisabled }: IButtonProps) => {
   const estiloBotao = {
     width: '100%',
     height: '42px',
-    backgroundColor: disabled ? '#A9A9A9' : '#81259D', // Muda a cor para cinza se desabilitado
+    backgroundColor: isDisabled ? '#81259D' : '#A9A9A9', // Muda a cor para cinza se desabilitado
     color: '#FFF',
-    border: `1px solid ${disabled ? '#A9A9A9' : '#81259D'}`, // Muda a cor da borda para cinza se desabilitado
+    border: `1px solid ${isDisabled ? '#81259D' : '#A9A9A9'}`, // Muda a cor da borda para cinza se desabilitado
     borderRadius: '21px',
-    cursor: disabled ? 'not-allowed' : 'pointer', // Muda o cursor se desabilitado
+    cursor: isDisabled ? 'pointer' : 'not-allowed', // Muda o cursor se desabilitado
     transition: 'opacity 0.3s', // Adiciona uma transição suave para o hover
-    opacity: disabled ? 0.6 : 1, // Ajusta a opacidade se desabilitado
+    opacity: isDisabled ? 1 : 0.6, // Ajusta a opacidade se desabilitado
   };
 
-  return <button disabled={disabled} style={estiloBotao} onClick={onClick}>{title}</button>;
+  return <button disabled={isDisabled} style={estiloBotao} >{title}</button>;
 };
 
 export default Button;
